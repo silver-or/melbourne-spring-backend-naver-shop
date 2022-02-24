@@ -18,4 +18,7 @@ public interface MemberService {
     String registerSendMail();
     String listOfPoints();
     String viewDetailsOfPointsAndSaveAndDelete();
+    String calc();
+    String bmi();
+    String grade();
 }

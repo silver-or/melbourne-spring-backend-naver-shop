@@ -1,5 +1,7 @@
 package net.zerotoweb.api.member.service;
 
+import org.springframework.stereotype.Service;
+
 /**
  * packageName: net.zerotoweb.api.member.service
  * fileName   : MemberServiceImpl
@@ -11,6 +13,7 @@ package net.zerotoweb.api.member.service;
  * ================================
  * 2022-02-11    최은아       최초 생성
  */
+@Service
 public class MemberServiceImpl implements MemberService{
     @Override
     public String membershipList() {
@@ -39,6 +42,21 @@ public class MemberServiceImpl implements MemberService{
 
     @Override
     public String viewDetailsOfPointsAndSaveAndDelete() {
+        return null;
+    }
+
+    @Override
+    public String calc() {
+        return null;
+    }
+
+    @Override
+    public String bmi() {
+        return null;
+    }
+
+    @Override
+    public String grade() {
         return null;
     }
 }
