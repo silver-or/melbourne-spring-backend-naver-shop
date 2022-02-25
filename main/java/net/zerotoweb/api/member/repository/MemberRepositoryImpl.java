@@ -32,4 +32,14 @@ public class MemberRepositoryImpl implements MemberRepository{
     public String getGrade() {
         return null;
     }
+
+    @Override
+    public String login(MemberDTO member) {
+        return null;
+    }
+
+    @Override
+    public String lotto(MemberDTO member ) {
+        return null;
+    }
 }

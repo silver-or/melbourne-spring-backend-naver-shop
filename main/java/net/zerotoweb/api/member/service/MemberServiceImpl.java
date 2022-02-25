@@ -63,7 +63,59 @@ public class MemberServiceImpl implements MemberService{
         else if (avg >= 70.0) { result = "C"; }
         else if (avg >= 60.0) { result = "D"; }
         else { result = "F"; }
-        return String.format("[성적표] 이름 : %s, 국어 점수 : %d, 영어 점수 : %d, 수학 점수 : %d, 평균 : %.2f, 학점 : %s",
+        return String.format("[성적표]\n이름 : %s\n국어 점수 : %d\n영어 점수 : %d\n수학 점수 : %d\n평균 : %.2f\n학점 : %s",
                             member.getName(), kor, eng, math, avg, result);
+    }
+
+    @Override
+    public String login(MemberDTO member) {
+        String userId = member.getUserId();
+        String pw = member.getPw();
+        return pw.equals(MemberDTO.PASSWORD) ? String.format("%s 님의 비번은 %s 가 맞습니다. 로그인 성공", userId, pw)
+                : String.format(("%s 님의 ID는 맞고, 비번은 %s 가 아닙니다. 로그인 실패"), userId, pw);
+    }
+
+    @Override
+    public String lotto(MemberDTO member) {
+        int[] answer = new int[6];
+        int[] userNum = member.getNumbers();
+        int num = 0;
+        int count = 0;
+        boolean duplicate;
+        String result = "";
+        for (int i = 0; i < answer.length; i++) {
+            duplicate = true;
+            while (duplicate) {
+                num = (int) (Math.random() * 45) + 1;
+                duplicate = false;
+                for (int j = 0; j < i; j++) {
+                    if (answer[j] == num) {
+                        duplicate = true;
+                        break;
+                    }
+                }
+            }
+            answer[i] = num;
+        }
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                if (answer[i] == userNum[j]) count++;
+            }
+        }
+        result += "이번주 로또 당첨 번호 : ";
+        for (int i = 0; i < 6; i++) {
+            result += answer[i] + " ";
+        }
+        result += "\n사용자의 로또 번호 : ";
+        for (int i = 0; i < 6; i++) {
+            result += userNum[i] + " ";
+        }
+        switch (count) {
+            case 6 : result += "\n축하합니다. 1등입니다."; break;
+            case 5 : result += "\n2등입니다."; break;
+            case 4 : result += "\n3등입니다."; break;
+            default : result += "\n당첨되지 않았습니다."; break;
+        }
+        return result;
     }
 }

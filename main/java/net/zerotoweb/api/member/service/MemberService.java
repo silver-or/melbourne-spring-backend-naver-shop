@@ -20,4 +20,8 @@ public interface MemberService {
     String getBmi(MemberDTO member);
 
     String getGrade(MemberDTO member);
+
+    String lotto(MemberDTO member);
+
+    String login(MemberDTO member);
 }

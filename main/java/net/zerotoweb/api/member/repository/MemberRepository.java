@@ -21,4 +21,8 @@ public interface MemberRepository {
     String getBmi(MemberDTO member);
 
     String getGrade();
+
+    String login(MemberDTO member);
+
+    String lotto(MemberDTO member);
 }
