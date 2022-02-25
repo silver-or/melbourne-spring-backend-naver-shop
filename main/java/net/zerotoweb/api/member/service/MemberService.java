@@ -1,5 +1,8 @@
 package net.zerotoweb.api.member.service;
 
+import net.zerotoweb.api.member.domain.CalcDTO;
+import net.zerotoweb.api.member.domain.MemberDTO;
+
 /**
  * packageName: net.zerotoweb.api.member.service
  * fileName   : MemberService
@@ -12,13 +15,9 @@ package net.zerotoweb.api.member.service;
  * 2022-02-11    최은아       최초 생성
  */
 public interface MemberService {
-    String membershipList();
-    String viewMembershipInformation();
-    String viewSendList();
-    String registerSendMail();
-    String listOfPoints();
-    String viewDetailsOfPointsAndSaveAndDelete();
-    String calc();
-    String bmi();
-    String grade();
+    String calc(CalcDTO calc);
+
+    String getBmi(MemberDTO member);
+
+    String getGrade(MemberDTO member);
 }
