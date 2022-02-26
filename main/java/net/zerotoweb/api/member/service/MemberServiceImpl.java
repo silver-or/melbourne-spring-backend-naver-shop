@@ -43,13 +43,15 @@ public class MemberServiceImpl implements MemberService{
     public String getBmi(MemberDTO member) {
         double height = member.getHeight();
         double weight = member.getWeight();
-        double bmi = weight / (height*height) * 10000;
+        double bmi = weight / (height * height) * 10000;
         String result = "";
-        if (bmi <= 18.5) { result = "저체중"; }
-        else if (bmi < 23.0) { result = "정상"; }
-        else if (bmi < 25.0) { result = "과체중"; }
-        else { result = "비만"; }
-        return String.format("%s 님의 bmi 지수는 %.2f, %s 입니다.", member.getName(), bmi, result);
+        if (bmi >= 35) { result = "고도 비만"; }
+        else if (bmi >= 30) { result = "중(重)도 비만 (2단계 비만)"; }
+        else if (bmi >= 25) { result = "경도 비만 (1단계 비만)"; }
+        else if (bmi >= 23) { result = "과체중"; }
+        else if (bmi >= 18.5) { result = "정상"; }
+        else { result = "저체중"; }
+        return String.format("%s 님의 bmi 지수는 %.2f로, %s 입니다.", member.getName(), bmi, result);
     }
 
     @Override
@@ -58,13 +60,8 @@ public class MemberServiceImpl implements MemberService{
         int eng = member.getEng();
         int math = member.getMath();
         double avg = (kor + eng + math) / 3.0;
-        String result = "";
-        if (avg >= 90.0) { result = "A"; }
-        else if (avg >= 80.0) { result = "B"; }
-        else if (avg >= 70.0) { result = "C"; }
-        else if (avg >= 60.0) { result = "D"; }
-        else { result = "F"; }
-        return String.format("[성적표]\n이름 : %s\n국어 점수 : %d\n영어 점수 : %d\n수학 점수 : %d\n평균 : %.2f\n학점 : %s",
+        String result = (avg >= 60) ? "합격" : "불합격";
+        return String.format("[성적표]\n이름 : %s\n국어 점수 : %d\n영어 점수 : %d\n수학 점수 : %d\n평균 : %.2f\n합격 여부 : %s",
                             member.getName(), kor, eng, math, avg, result);
     }
 
