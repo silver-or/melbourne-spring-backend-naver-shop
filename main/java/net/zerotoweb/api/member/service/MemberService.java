@@ -1,5 +1,6 @@
 package net.zerotoweb.api.member.service;
 
+import net.zerotoweb.api.member.domain.AlgoDTO;
 import net.zerotoweb.api.member.domain.CalcDTO;
 import net.zerotoweb.api.member.domain.MemberDTO;
 
@@ -21,7 +22,7 @@ public interface MemberService {
 
     String getGrade(MemberDTO member);
 
-    String lotto(MemberDTO member);
-
     String login(MemberDTO member);
+
+    String lotto(AlgoDTO algo);
 }

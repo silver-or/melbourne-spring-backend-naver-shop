@@ -1,6 +1,7 @@
 package net.zerotoweb.api.member.controller;
 
 import lombok.RequiredArgsConstructor;
+import net.zerotoweb.api.member.domain.AlgoDTO;
 import net.zerotoweb.api.member.domain.CalcDTO;
 import net.zerotoweb.api.member.domain.MemberDTO;
 import net.zerotoweb.api.member.service.MemberService;
@@ -44,7 +45,7 @@ public class MemberController {
     }
 
     @PostMapping("/lotto")
-    public String lotto(@RequestBody MemberDTO member) {
-        return service.lotto(member);
+    public String lotto(@RequestBody AlgoDTO algo) {
+        return service.lotto(algo);
     }
 }

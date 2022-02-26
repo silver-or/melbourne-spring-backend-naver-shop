@@ -1,5 +1,6 @@
 package net.zerotoweb.api.member.repository;
 
+import net.zerotoweb.api.member.domain.AlgoDTO;
 import net.zerotoweb.api.member.domain.CalcDTO;
 import net.zerotoweb.api.member.domain.MemberDTO;
 import org.springframework.stereotype.Repository;
@@ -39,7 +40,7 @@ public class MemberRepositoryImpl implements MemberRepository{
     }
 
     @Override
-    public String lotto(MemberDTO member ) {
+    public String lotto(AlgoDTO algo) {
         return null;
     }
 }

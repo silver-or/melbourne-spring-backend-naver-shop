@@ -20,14 +20,16 @@ public class MemberDTO {
     public static String PASSWORD = "abc";
     private String userId;
     private String pw;
+
     private String name;
-    private String address;
-    private String phone;
     private double height;
     private double weight;
-    private String regDate;
+
     private int kor;
     private int eng;
     private int math;
-    private int[] numbers;
+
+    private String address;
+    private String phone;
+    private String regDate;
 }

@@ -1,5 +1,6 @@
 package net.zerotoweb.api.member.repository;
 
+import net.zerotoweb.api.member.domain.AlgoDTO;
 import net.zerotoweb.api.member.domain.CalcDTO;
 import net.zerotoweb.api.member.domain.MemberDTO;
 
@@ -24,5 +25,5 @@ public interface MemberRepository {
 
     String login(MemberDTO member);
 
-    String lotto(MemberDTO member);
+    String lotto(AlgoDTO algo);
 }

@@ -1,6 +1,7 @@
 package net.zerotoweb.api.member.service;
 
 import lombok.RequiredArgsConstructor;
+import net.zerotoweb.api.member.domain.AlgoDTO;
 import net.zerotoweb.api.member.domain.CalcDTO;
 import net.zerotoweb.api.member.domain.MemberDTO;
 import net.zerotoweb.api.member.repository.MemberRepository;
@@ -76,9 +77,9 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
-    public String lotto(MemberDTO member) {
+    public String lotto(AlgoDTO algo) {
         int[] answer = new int[6];
-        int[] userNum = member.getNumbers();
+        int[] userNum = algo.getNumbers();
         int num = 0;
         int count = 0;
         boolean duplicate;
